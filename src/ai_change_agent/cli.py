@@ -32,9 +32,7 @@ def main(arguments: Sequence[str] | None = None) -> int:
     build_parser().parse_args(arguments)
     settings = Settings.from_environment()
     configure_logging(settings.log_level)
-    logger.info(
-        "AI Change Agent is initialized for workspace: %s", settings.workspace_root
-    )
+    logger.info("AI Change Agent is initialized for workspace: %s", settings.workspace_root)
     return 0
 
 

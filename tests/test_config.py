@@ -7,9 +7,7 @@ import pytest
 from ai_change_agent.config import Settings
 
 
-def test_settings_use_safe_defaults(
-    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
-) -> None:
+def test_settings_use_safe_defaults(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     """Defaults should resolve the current working directory and use conservative limits."""
     monkeypatch.chdir(tmp_path)
     for name in ("WORKSPACE_ROOT", "LOG_LEVEL", "MAX_FILE_BYTES"):
@@ -22,9 +20,7 @@ def test_settings_use_safe_defaults(
     assert settings.max_file_bytes == 1_048_576
 
 
-def test_settings_read_environment_values(
-    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
-) -> None:
+def test_settings_read_environment_values(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     """Explicit values should be normalised and preserved."""
     monkeypatch.setenv("AI_CHANGE_AGENT_WORKSPACE_ROOT", str(tmp_path))
     monkeypatch.setenv("AI_CHANGE_AGENT_LOG_LEVEL", "debug")

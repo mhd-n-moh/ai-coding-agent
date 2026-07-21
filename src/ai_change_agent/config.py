@@ -38,19 +38,13 @@ class Settings:
 
         if log_level not in _VALID_LOG_LEVELS:
             options = ", ".join(sorted(_VALID_LOG_LEVELS))
-            raise ValueError(
-                f"Invalid log level {log_level!r}; expected one of: {options}."
-            )
+            raise ValueError(f"Invalid log level {log_level!r}; expected one of: {options}.")
         try:
             max_file_bytes = int(max_file_bytes_value)
         except ValueError as error:
-            raise ValueError(
-                "AI_CHANGE_AGENT_MAX_FILE_BYTES must be an integer."
-            ) from error
+            raise ValueError("AI_CHANGE_AGENT_MAX_FILE_BYTES must be an integer.") from error
         if max_file_bytes <= 0:
-            raise ValueError(
-                "AI_CHANGE_AGENT_MAX_FILE_BYTES must be greater than zero."
-            )
+            raise ValueError("AI_CHANGE_AGENT_MAX_FILE_BYTES must be greater than zero.")
 
         return cls(
             workspace_root=workspace_root,

@@ -6,9 +6,9 @@ the smallest practical set of changes.
 
 ## Current status
 
-Milestone 1.1 is complete: project packaging, configuration, structured logging, and quality
-tooling are in place. The agent workflow and repository tools are intentionally introduced in
-later milestones.
+Milestone 1.2 is complete: project packaging, configuration, structured logging, and strict
+domain contracts are in place. The agent workflow and repository tools are intentionally
+introduced in later milestones.
 
 ## Development
 
@@ -36,6 +36,7 @@ The application reads these optional environment variables:
 
 ```text
 src/ai_change_agent/  Application package
+src/ai_change_agent/models/  Strict request, plan, tool, report, and workflow-state contracts
 tests/                Automated tests
 ```
 
@@ -43,4 +44,3 @@ tests/                Automated tests
 
 All changes should include relevant tests, pass linting and static type checking, and preserve
 the documented workspace-safety boundary.
-

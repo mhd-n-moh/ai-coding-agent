@@ -17,7 +17,9 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Typing :: Typed",
 ]
-dependencies = []
+dependencies = [
+  "pydantic>=2.10,<3",
+]
 
 [project.optional-dependencies]
 dev = [
@@ -57,4 +59,3 @@ python_version = "3.12"
 strict = true
 mypy_path = "src"
 warn_unreachable = true
-

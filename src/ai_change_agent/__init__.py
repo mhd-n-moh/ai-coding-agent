@@ -6,5 +6,6 @@ layer.
 """
 
 from ai_change_agent.config import Settings
+from ai_change_agent.models import AgentState, ChangeRequest
 
-__all__ = ["Settings"]
+__all__ = ["AgentState", "ChangeRequest", "Settings"]
