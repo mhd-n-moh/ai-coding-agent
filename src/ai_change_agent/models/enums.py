@@ -54,3 +54,13 @@ class TestStatus(StrEnum):
     FAIL = "fail"
     NO_TESTS_FOUND = "no_tests_found"
     EXECUTION_ERROR = "execution_error"
+
+
+class SkipReason(StrEnum):
+    """Why discovery intentionally omitted a filesystem entry from the project map."""
+
+    HIDDEN = "hidden"
+    CONFIGURED_IGNORE = "configured_ignore"
+    BINARY = "binary"
+    TOO_LARGE = "too_large"
+    SYMBOLIC_LINK = "symbolic_link"

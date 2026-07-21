@@ -6,9 +6,9 @@ the smallest practical set of changes.
 
 ## Current status
 
-Milestone 1.2 is complete: project packaging, configuration, structured logging, and strict
-domain contracts are in place. The agent workflow and repository tools are intentionally
-introduced in later milestones.
+Milestone 2.1 is complete: the agent can safely discover a local repository and produce a
+deterministic metadata-only project map. Project understanding, agent workflow, and repository
+mutation tools are intentionally introduced in later milestones.
 
 ## Development
 
@@ -37,6 +37,7 @@ The application reads these optional environment variables:
 ```text
 src/ai_change_agent/  Application package
 src/ai_change_agent/models/  Strict request, plan, tool, report, and workflow-state contracts
+src/ai_change_agent/repository/  Read-only discovery with safety limits and ignore rules
 tests/                Automated tests
 ```
 

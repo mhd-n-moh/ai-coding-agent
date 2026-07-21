@@ -8,10 +8,12 @@ from ai_change_agent.models.enums import (
     ChangeStatus,
     FileOperation,
     PlanStepKind,
+    SkipReason,
     TestStatus,
     ToolStatus,
     ValidationStatus,
 )
+from ai_change_agent.models.repository import RepositoryFile, RepositoryMap, SkippedEntry
 from ai_change_agent.models.schemas import (
     ChangedFile,
     ChangeReport,
@@ -35,6 +37,10 @@ __all__ = [
     "FileOperation",
     "PlanStep",
     "PlanStepKind",
+    "RepositoryFile",
+    "RepositoryMap",
+    "SkipReason",
+    "SkippedEntry",
     "TestResult",
     "TestStatus",
     "ToolCall",

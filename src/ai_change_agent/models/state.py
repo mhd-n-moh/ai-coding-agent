@@ -5,6 +5,7 @@ from __future__ import annotations
 from pydantic import Field, model_validator
 
 from ai_change_agent.models.enums import ChangeStatus, ToolStatus
+from ai_change_agent.models.repository import RepositoryMap
 from ai_change_agent.models.schemas import (
     ChangedFile,
     ChangeReport,
@@ -27,7 +28,7 @@ class AgentState(ContractModel):
 
     request: ChangeRequest
     status: ChangeStatus = ChangeStatus.PENDING
-    repository_summary: str | None = None
+    repository_map: RepositoryMap | None = None
     plan: ExecutionPlan | None = None
     tool_calls: tuple[ToolCall, ...] = ()
     tool_results: tuple[ToolResult, ...] = ()
