@@ -1,7 +1,60 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
 [project]
-name = "ai-coding-agent"
+name = "ai-change-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "A safe, tool-driven agent for applying focused changes to Python repositories."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "AI Change Agent Contributors" }]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.12",
+  "Typing :: Typed",
+]
 dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.13",
+  "pytest>=8.3",
+  "pytest-cov>=6.0",
+  "ruff>=0.8",
+]
+
+[project.scripts]
+ai-change-agent = "ai_change_agent.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_change_agent"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers --cov=ai_change_agent --cov-report=term-missing"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["ai_change_agent"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
+warn_unreachable = true
+
